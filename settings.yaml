@@ -1,0 +1,5 @@
+controls:
+  global-control:
+    provider:
+      type: python
+      module: global_control

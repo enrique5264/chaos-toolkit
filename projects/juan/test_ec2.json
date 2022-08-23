@@ -1,0 +1,51 @@
+{
+    "title": "Testing access to EC2 instances",
+    "description": "Test",
+    "steady-state-hypothesis": {
+        "title": "The file must be around first",
+        "probes": [
+            {
+                "name": "count-instances",
+                "type": "probe",
+                "tolerance": [
+                    0,
+                    10
+                ],
+                "provider": {
+                    "type": "python",
+                    "module": "chaosaws.ec2.probes",
+                    "func": "count_instances",
+                    "arguments": {
+                        "filters": []
+                    }
+                }
+            }
+        ]
+    },
+    "method": [
+        {
+            "name": "describe-instances",
+            "type": "probe",
+            "provider": {
+                "type": "python",
+                "module": "chaosaws.ec2.probes",
+                "func": "describe_instances",
+                "arguments": {
+                    "filters": []
+                }
+            }
+        }
+    ],
+    "configuration": {
+        "aws_region": "us-west-1"
+    },
+    "controls": [
+        {
+            "name": "global-control",
+            "provider": {
+                "type": "python",
+                "module": "global_control"
+            }
+        }
+    ]
+}
