@@ -12,3 +12,4 @@ if [ "$username" == "" ]; then
 else
     echo "username is not null"
 fi
+printenv
