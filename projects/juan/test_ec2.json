@@ -38,14 +38,5 @@
     ],
     "configuration": {
         "aws_region": "us-west-1"
-    },
-    "controls": [
-        {
-            "name": "global-control",
-            "provider": {
-                "type": "python",
-                "module": "global_control"
-            }
-        }
-    ]
+    }
 }

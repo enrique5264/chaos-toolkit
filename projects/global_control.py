@@ -9,9 +9,6 @@ def configure_control(configuration: Configuration = None,
                       experiment: Experiment = None):
     CLUSTER = os.environ.get('CLUSTER')
     REGION = os.environ.get('REGION')
-    logger.info(os.popen("pwd").read())
-    logger.info(os.popen("ls -a").read())
-    logger.info(os.popen("ls -a $HOME").read())
     try:
         if CLUSTER != None and CLUSTER != "" and REGION != None and REGION != "":
             command = "aws eks update-kubeconfig --region {0} --name {1}".format(
@@ -29,4 +26,3 @@ def after_experiment_control(context: Experiment, state: Journal,
                              configuration: Configuration = None,
                              secrets: Secrets = None, **kwargs):
     logger.info("Results Journal: " + str(state))
-    logger.info(os.popen("ls -a").read())
